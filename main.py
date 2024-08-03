@@ -169,6 +169,7 @@ try:
         with open("database.json", "w") as file:
             json.dump(database, file, indent=4)
     while True:
+        os.system("cls")
         in_up = input("Hello, welcome to the digital login interface by Anasteiro, do you have an account?(y/n)\n=> ")
         if in_up.lower() in ["y", "yes"]:
             login()
