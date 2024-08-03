@@ -64,7 +64,15 @@ def login():
     tries = 1
     while True:
         if tries % 5 == 0:
-            reset()
+            reset_create = input("Do you wish to reset the password of your account or create a new account(type r for reset c for create and n if you do not wish to): ")
+            if reset_create.lower() == "r":
+                reset()
+            elif reset_create.lower() == "c":
+                add()
+            elif reset_create.lower() == "n":
+                print("Ok...")
+            else:
+                print("Invalid input")
         name = input("Enter your username: ")
         password = input("Enter your password: ")
         time.sleep(2)
@@ -85,6 +93,7 @@ def login():
             time.sleep(2)
             os.system("cls")
             tries += 1
+
 
 
 def add():
@@ -159,15 +168,21 @@ try:
         print("Creating database file...")
         with open("database.json", "w") as file:
             json.dump(database, file, indent=4)
-    in_up = input("Hello, welcome to the digital login interface by Anasteiro, do you have an account?(y/n)\n=> ")
-    if in_up in ["y", "Y", "Yes", "YES", "yes"]:
-        login()
-        menu()
-    elif in_up in ["N", "n", "No", "NO", "no"]:
-        add()
-        os.system("cls")
-        time.sleep(2)
-        login()
-        menu()
+    while True:
+        in_up = input("Hello, welcome to the digital login interface by Anasteiro, do you have an account?(y/n)\n=> ")
+        if in_up.lower() in ["y", "yes"]:
+            login()
+            menu()
+        elif in_up.lower() in ["n", "no"]:
+            add()
+            os.system("cls")
+            time.sleep(2)
+            login()
+            menu()
+        else:
+            print(f"Wrong input, {in_up} is not a valid choice")
+            time.sleep(2)
+            os.system("cls")
+
 except KeyboardInterrupt:
     print("\nProgram succesfully stopped by user keyboard interruption...")
