@@ -136,7 +136,10 @@ def menu():
                 login()
             elif in_or_up.lower() == "up":
                 add()
+                os.system("cls")
                 login()
+            else:
+                print("Wrong Input...")
 
         elif option == "3":
             os.system("cls")
