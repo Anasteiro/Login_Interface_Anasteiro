@@ -20,3 +20,7 @@ Ensure you have Python installed on your machine. You can download it from [pyth
 
 1. Clone the repository:
    git clone https://github.com/Anasteiro/Login_Interface_Anasteiro.git
+
+### WARNING ⚠️
+
+THIS PROJECT IS NOT TO BE USED FOR PROFESSIONAL PURPOSES FOR SAFETY REASONS. ONLY MADE FOR EDUCATIONAL PURPOSES
