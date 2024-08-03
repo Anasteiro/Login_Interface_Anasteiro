@@ -166,6 +166,7 @@ try:
         load()
     except FileNotFoundError:
         print("Creating database file...")
+        time.sleep(2)
         with open("database.json", "w") as file:
             json.dump(database, file, indent=4)
     while True:
