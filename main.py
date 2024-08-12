@@ -6,7 +6,7 @@ from mysql.connector import Error
 try:
     conn = mysql.connector.connect(
         username='root',
-        password='password',
+        password='Anas!007',
         host='localhost'
     )
 
@@ -109,16 +109,18 @@ def login():
 
 
 def add():
-    new_user = input("Enter a new username: ")
-    new_password = input("Enter a new password: ")
-    user_creds = main_query(new_user, new_password)
-    if user_creds:
-        print("Username already exists...")
-        time.sleep(2)
-    else:
-        cursor.execute('INSERT INTO creds(username, password) VALUES(%s, %s)', (new_user, new_password))
-        conn.commit()
-        print(f"New account: {new_user} succesfully added!")
+    while True:
+        new_user = input("Enter a new username: ")
+        new_password = input("Enter a new password: ")
+        user_creds = main_query(new_user, new_password)
+        if user_creds:
+            print("Username already exists...")
+            time.sleep(2)
+        else:
+            cursor.execute('INSERT INTO creds(username, password) VALUES(%s, %s)', (new_user, new_password))
+            conn.commit()
+            print(f"New account: {new_user} succesfully added!")
+            break
 
 
 def pop(username):
