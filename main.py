@@ -1,21 +1,26 @@
 import time
 import os
 import mysql.connector
+from mysql.connector import Error
 
+try:
+    conn = mysql.connector.connect(
+        username='root',
+        password='password',
+        host='localhost'
+    )
 
-conn = mysql.connector.connect(
-    username='root',
-    password='password',
-    host='localhost'
-)
+    cursor = conn.cursor()
 
-cursor = conn.cursor()
+    cursor.execute('CREATE DATABASE IF NOT EXISTS login')
+    conn.commit()
+    cursor.execute('USE login')
+    cursor.execute(
+        'CREATE TABLE IF NOT EXISTS creds(id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, username varchar(15) NOT NULL, password varchar(15) NOT NULL)')
+    conn.commit()
+except Error as e:
+    print(f'Error connecting to MySQL: {e}')
 
-cursor.execute('CREATE DATABASE IF NOT EXISTS login')
-conn.commit()
-cursor.execute('USE login')
-cursor.execute('CREATE TABLE IF NOT EXISTS creds(id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, username varchar(15) NOT NULL, password varchar(15) NOT NULL)')
-conn.commit()
 
 def main_query(username, password):
     cursor.execute('SELECT * FROM creds WHERE username = %s AND password = %s', (username, password))
