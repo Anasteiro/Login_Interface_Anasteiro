@@ -14,7 +14,11 @@ This project is designed for individuals to grasp the idea of how to create a pr
 
 ### Prerequisites
 
-Ensure you have Python installed on your machine. You can download it from [python.org](https://www.python.org/).
+1. Ensure you have Python installed on your machine. You can download it from [python.org](https://www.python.org/).
+2. Run the following on cmd: pip install mysql-connector-python
+3. download and configure a mysql server from [dev.mysql.com](https://dev.mysql.com/downloads/mysql/)
+4. configure the host, password and username fields accordingly in lines 8-10 of the code to match your mysql instance creds.
+
 
 ### Installation
 
