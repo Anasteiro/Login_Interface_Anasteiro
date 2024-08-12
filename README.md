@@ -8,7 +8,7 @@ This project is designed for individuals to grasp the idea of how to create a pr
 - **Delete Account**: Remove existing accounts from the system.
 - **Reset Password**: Reset the password for your account if forgotten.
 - **View The Username and the password in hashes of your account**: Easily view the current logged in username and password in hashes
-- **Built in JSON feature to store info locally**: Store your info locally so you can use them again
+- **Built in mySQL datavase feature to store info locally**: Store your info locally so you can use them again
 
 ## Getting Started
 
